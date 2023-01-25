@@ -9,8 +9,10 @@ allprojects {
 
     repositories {
         mavenCentral()
-        maven {
-            url = uri(findProperty("repositoryUrl") as String)
+        if(hasProperty("repositoryUrl")){
+            maven {
+                url = uri(findProperty("repositoryUrl") as String)
+            }
         }
     }
 
@@ -33,11 +35,13 @@ allprojects {
                 }
             }
             repositories {
-                maven {
-                    url = uri(findProperty("repositoryUrl") as String)
-                    credentials {
-                        username = findProperty("repositoryUsername") as String
-                        password = findProperty("repositoryPassword") as String
+                if(hasProperty("repositoryUrl")){
+                    maven {
+                        url = uri(findProperty("repositoryUrl") as String)
+                        credentials {
+                            username = findProperty("repositoryUsername") as String
+                            password = findProperty("repositoryPassword") as String
+                        }
                     }
                 }
             }
