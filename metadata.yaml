@@ -25,6 +25,10 @@ values:
     description: The gradle version
     default: "8.0-rc-2"
     required: true
+  - name: brief
+    description: A brief description of the project.
+    default: ~
+    required: true
   - name: java_version
     description: The jdk version. Dont use a jdk older than 11.
     default: 17
